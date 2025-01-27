@@ -175,8 +175,8 @@ func handleEventBatchDerivativeExecution(
 	var marketID string
 	var isBuy bool
 	var isLiquidation bool
-
 	var tradesRaw string
+	var execType string
 
 	for _, attr := range attrs {
 		switch attr.Key {
@@ -186,7 +186,8 @@ func handleEventBatchDerivativeExecution(
 			// "true" or "false" as string
 			isBuy = (attr.Value == "true")
 		case "executionType":
-			// TODO: Add: execType = attr.Value // e.g. "Market", "Limit"
+			execType = attr.Value // e.g. "market", "limitFill", "limitMatchRestingOrder", "limitMatchNewOrder"
+			log.Println("Execution type: ", execType)
 		case "is_liquidation":
 			isLiquidation = (attr.Value == "true")
 		case "trades":

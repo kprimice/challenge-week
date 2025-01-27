@@ -10,9 +10,9 @@ import (
 )
 
 func main() {
-	startFlag := flag.Uint64("start", 100000000, "Block number to start scanning downward from.")
+	startFlag := flag.Uint64("start", 96000000, "Block number to start scanning downward from.")
 	endFlag := flag.Uint64("end", 103000000, "Block number to stop at (inclusive).")
-	marketFlag := flag.String("market", "0x4ca0f92fc28be0c9761326016b5a1a2177dd6375558365116b5bdda9abc229ce", "Market ID to filter (optional). If empty, parse all BTC-PERP.")
+	marketFlag := flag.String("market", "", "Market ID to filter (optional). If empty, fetch all derivative trades for all markets.")
 
 	flag.Parse()
 
@@ -22,7 +22,7 @@ func main() {
 	}
 	defer ordersFile.Close()
 
-	tradesFile, err := os.Create("./data/trades.csv")
+	tradesFile, err := os.Create("./data/liquidations.csv")
 	if err != nil {
 		log.Fatalf("failed to create trades CSV file: %w", err)
 	}

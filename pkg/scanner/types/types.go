@@ -48,6 +48,7 @@ func (r CSVRecord) AsOrderRow() []string {
 		trimTrailingZeros(r.Margin),
 		r.OrderType,
 		r.SubaccountID,
+		r.MarketID,
 		// trimTrailingZeros(r.Margin),
 		// TxHash,
 		// parseBlockTime(r.BlockTimestamp),
@@ -68,6 +69,7 @@ func (r CSVRecord) AsTradeRow() []string {
 		trimTrailingZeros(r.Pnl),
 		trimTrailingZeros(r.Payout),
 		r.SubaccountID,
+		r.MarketID,
 		// parseBlockTime(r.BlockTimestamp),
 		// r.TxHash,
 	}
