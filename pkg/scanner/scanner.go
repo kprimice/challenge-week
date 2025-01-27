@@ -39,7 +39,7 @@ func RunScanner(cfg types.Config, ordersFile *os.File, tradesFile *os.File) erro
 	defer tradesWriter.Flush()
 
 	ordersWriter.Write([]string{
-		"OrderHash", "Block", "Action", "Price", "Quantity", "OrderType", "SubaccountID",
+		"OrderHash", "Block", "Action", "Price", "Quantity", "Margin", "OrderType", "SubaccountID",
 	})
 
 	tradesWriter.Write([]string{

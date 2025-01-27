@@ -45,6 +45,7 @@ func (r CSVRecord) AsOrderRow() []string {
 		r.Action,
 		trimTrailingZeros(r.Price),
 		trimTrailingZeros(r.Quantity),
+		trimTrailingZeros(r.Margin),
 		r.OrderType,
 		r.SubaccountID,
 		// trimTrailingZeros(r.Margin),
