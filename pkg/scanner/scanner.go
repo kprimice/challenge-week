@@ -279,6 +279,7 @@ func RunDerivativeTrades(cfg DerivativeTradesConfig, out io.Writer) error {
 
 		// 6) Write them to CSV
 		for _, t := range trades {
+			time.Sleep(200 * time.Millisecond)
 			pd := t.PositionDelta
 			if pd == nil {
 				pd = &derivativeExchangePB.PositionDelta{}
